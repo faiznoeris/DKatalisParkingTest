@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+#!/usr/local/bin/node node
 # Add script to run program here.
 # Complete bin/setup so that after it is
 # run, bin/parking_lot can be used to launch
@@ -6,6 +7,38 @@
 
 # This variable contains absolute path of this `parking_lot` script
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null && pwd )"
+
+for var in "$@"
+do
+    while read line; 
+    do 
+        arrIN=(${line// / })
+        len=${#arrIN[@]}
+        if [ $len -gt 2 ]
+        then
+            node -e "require('./app/index').${arrIN[0]}('${arrIN[1]}', '${arrIN[2]}')"
+            continue
+        fi
+        node -e "require('./app/index').${arrIN[0]}('${arrIN[1]}')"
+    done < "$var"
+done
+
+# node -e 'require("./app/index").create_parking_lot(6)'
+# node -e 'require("./app/index").park("KA-01-HH-1234")'
+# node -e 'require("./app/index").park("KA-01-HH-9999")'
+# node -e 'require("./app/index").park("KA-01-BB-0001")'
+# node -e 'require("./app/index").park("KA-01-HH-7777")'
+# node -e 'require("./app/index").park("KA-01-HH-2701")'
+# node -e 'require("./app/index").leave("KA-01-HH-3141", 4)'
+# node -e 'require("./app/index").status()'
+# node -e 'require("./app/index").park("KA-01-P-333")'
+# node -e 'require("./app/index").leave("KA-01-HH-1234", 4)'
+# node -e 'require("./app/index").leave("KA-01-BB-0001", 6)'
+# node -e 'require("./app/index").leave("DL-12-AA-9999", 2)'
+# node -e 'require("./app/index").park("KA-09-HH-0987")'
+# node -e 'require("./app/index").park("CA-09-IO-1111")'
+# node -e 'require("./app/index").park("KA-09-HH-0123")'
+# node -e 'require("./app/index").status()'
 
 # Use DIR variable above to pinpoint your jar/executable/main class
 # e.g.
