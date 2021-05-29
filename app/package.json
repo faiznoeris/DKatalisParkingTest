@@ -1,0 +1,14 @@
+{
+    "name": "dkatalis-parkingtest",
+    "version": "1.0.0",
+    "description": "Take Home Test from DKatalis",
+    "author": "Muhammad Faiz Noeris <m.faiznoeris@gmail.com>",
+    "main": "index.js",
+    "scripts": {
+        "start": "node index.js",
+        "test": "jest"
+    },
+    "devDependencies": {
+        "jest": "^24.9.0"
+    }
+}
