@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+#!/usr/bin/env ruby
 # Add script to:
 # * Install dependencies
 # * Build/Compile
@@ -11,4 +12,5 @@ DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null && pwd )"
 
 rm parkingdata.json
 ./bin/parking_lot "$DIR/../functional_spec/fixtures/file_input.txt"
+rm parkingdata.json
 ./bin/run_functional_tests
