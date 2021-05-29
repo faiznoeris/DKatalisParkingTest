@@ -46,7 +46,7 @@ EOTXT
     it "input from file" do
       command = run("parking_lot #{File.join(File.dirname(__FILE__), '..', 'fixtures', 'file_input.txt')}")
       stop_all_commands
-      expect(command.stdout).to eq(expected)
+      expect(command.output).to eq(expected)
     end
 
   end
