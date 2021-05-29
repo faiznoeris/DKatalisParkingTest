@@ -35,7 +35,7 @@ function create_parking_lot(size) {
         parkingJSON.available_slot.push(i)
     }
     console.log(
-        'Created a parking lot with ' + parkingJSON.parking_lot_size + ' slots.'
+        'Created parking lot with ' + parkingJSON.parking_lot_size + ' slots'
     )
 
     fs.writeFileSync(`./${filename}`, JSON.stringify(parkingJSON), 'utf-8')
@@ -129,11 +129,11 @@ function leave(registration_no, parking_hours) {
 }
 
 function status() {
-    console.log('Slot No.\tRegistration No.')
+    console.log('Slot No.    Registration No.')
     for (index = 0; index < parkingJSON.parking_lot.length; ++index) {
         console.log(
             parkingJSON.parking_lot[index].slot +
-                '\t' +
+                '           ' +
                 parkingJSON.parking_lot[index].regis
         )
     }
